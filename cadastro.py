@@ -6,7 +6,7 @@ layout =[
     [sg.Text('Usuário'),sg.Input(key='usuario')],
     [sg.Text('Senha'), sg.Input(key='senha',password_char='*')],
     [sg.Checkbox('Salvar o login')],
-    [sg.Button('Entrar')]
+    [sg.Button('Entrar'), sg.Button('Limpar')]
 ]
 #Janela
 janela= sg.Window('Tela de login', layout)
@@ -19,4 +19,9 @@ while True:
         if valores['usuario'] == 'Arthur' and valores['senha'] == '12345' :
             sg.popup('Bem-vindo ao Dev Mod!')
             break
-janela.close()
+    if eventos == 'Limpar':
+        janela['usuario'].update('')
+        janela['senha'].update('')
+        sg.popup('Preencha novamente!')
+
+janela.close() 
