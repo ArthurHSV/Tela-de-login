@@ -19,6 +19,11 @@ while True:
         if valores['usuario'] == 'Arthur' and valores['senha'] == '12345' :
             sg.popup('Bem-vindo ao Dev Mod!')
             break
+        else:
+            sg.popup('Senha ou usuário incorretos!')
+            janela['usuario'].update('')
+            janela['senha'].update('')
+
     if eventos == 'Limpar':
         janela['usuario'].update('')
         janela['senha'].update('')
