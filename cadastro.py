@@ -11,6 +11,9 @@ layout =[
 #Janela
 janela= sg.Window('Tela de login', layout)
 #Ler eventos
+
+tentativas = 0
+
 while True:
     eventos, valores = janela.read()
     if eventos == sg.WINDOW_CLOSED:
@@ -20,7 +23,12 @@ while True:
             sg.popup('Bem-vindo ao Dev Mod!')
             break
         else:
-            sg.popup('Senha ou usuário incorretos!')
+            tentativas = tentativas + 1
+            if tentativas > 3:
+                sg.popup('Número màximo de tentativas atingido!')
+                break
+
+            sg.popup(f'Senha ou usúario incorretos! Você ainda tem {tentativas} tentativa(s)!')
             janela['usuario'].update('')
             janela['senha'].update('')
 
