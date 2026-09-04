@@ -24,11 +24,13 @@ while True:
             break
         else:
             tentativas = tentativas + 1
-            if tentativas > 3:
+            restantes = 3 - tentativas
+            if tentativas >= 3:
                 sg.popup('Número màximo de tentativas atingido!')
+
                 break
 
-            sg.popup(f'Senha ou usúario incorretos! Você ainda tem {tentativas} tentativa(s)!')
+            sg.popup(f'Senha ou usúario incorretos! Você ainda tem {restantes} tentativa(s)!')
             janela['usuario'].update('')
             janela['senha'].update('')
 
