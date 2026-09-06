@@ -6,7 +6,7 @@ layout =[
     [sg.Text('Usuário'),sg.Input(key='usuario')],
     [sg.Text('Senha'), sg.Input(key='senha',password_char='*')],
     [sg.Checkbox('Salvar o login')],
-    [sg.Button('Entrar'), sg.Button('Limpar')]
+    [sg.Button('Entrar'), sg.Button('Limpar'), sg.Button('Cadastro')]
 ]
 #Janela
 janela= sg.Window('Tela de login', layout)
@@ -39,4 +39,18 @@ while True:
         janela['senha'].update('')
         sg.popup('Preencha novamente!')
 
+    if eventos == 'Cadastro':
+        layout_cadastro =[
+        [sg.Text('Nome de Usuário'),sg.Input(key='nome_de_usuario')],
+        [sg.Text('E-mail'),sg.Input(key='email_usuario')],
+        [sg.Text('Confirmação de E-mail'),sg.Input(key='configrmacao_email_usuario')],
+        [sg.Text('Senha'), sg.Input(key='senha',password_char='*')],
+        [sg.Text('Confirmação de Senha'), sg.Input(key='confirmacao_senha',password_char='*')]
+        ]
+
+        janela_cadastro = sg.Window('Área de Cadastro', layout_cadastro)
+
+        evento_cadastro, valores_cadastro = janela_cadastro.read()
+
+        
 janela.close() 
